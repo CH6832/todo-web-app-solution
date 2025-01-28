@@ -53,16 +53,12 @@ todo-app/
 ## Technical Stack
 
 - Java 21
+- Gradle 8.5
 - Spring Boot 3.4.1
 - Spring Security
 - Spring Data JPA
 - H2 Database
 - JUnit 5 & Spring Test
-
-## Prerequisites
-
-- Java 21 or higher
-- Gradle 8.5 or higher
 - Git (optional)
 
 ## Setup and Installation
