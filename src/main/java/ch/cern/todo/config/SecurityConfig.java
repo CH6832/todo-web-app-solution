@@ -29,7 +29,6 @@ import java.util.stream.Collectors;
  * Security Rules:
  * 1. Public Access:
  *    - /h2-console/** (database management interface)
- *    - /favicon.ico
  *
  * 2. Authentication Required:
  *    - /api/tasks/** (POST) - any authenticated user
@@ -69,7 +68,7 @@ public class SecurityConfig {
                 // Request authorization rules
                 .authorizeHttpRequests(auth -> auth
                         // H2 Console access configuration
-                        .requestMatchers("/h2-console/**", "/favicon.ico").permitAll()
+                        .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/h2-console/login.do**").permitAll()
                         .requestMatchers("/h2-console/header.jsp**").permitAll()
                         .requestMatchers("/h2-console/query.jsp**").permitAll()
@@ -102,10 +101,6 @@ public class SecurityConfig {
         return username -> {
             var user = userRepository.findByUsername(username)
                     .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
-
-            // Debug logging for user authentication
-            System.out.println("Loading user: " + username);
-            System.out.println("User roles: " + user.getRoles());
 
             return User.builder()
                     .username(user.getUsername())
