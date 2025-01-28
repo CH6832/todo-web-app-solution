@@ -71,8 +71,6 @@ public class TaskService {
     public Task getTask(Long id) {
         return taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found"));
-
-
     }
 
     /**
@@ -82,7 +80,6 @@ public class TaskService {
     @PreAuthorize("hasRole('ADMIN') or @securityService.isOwner(#id)")
     public Task updateTask(Long id, Task task) {
         Task existingTask = getTask(id);
-        // Update task properties
         return taskRepository.save(existingTask);
     }
 
@@ -101,11 +98,9 @@ public class TaskService {
      */
     @Transactional
     public Task createTask(Task task) {
-        // Validate task
         if (task == null) {
             throw new IllegalArgumentException("Task cannot be null");
         }
-
         // Validate required fields
         if (task.getTaskName() == null || task.getTaskName().trim().isEmpty()) {
             throw new IllegalArgumentException("Task name is required");
