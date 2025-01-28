@@ -502,13 +502,13 @@ test {
 
 ## Future Improvements
 
-1. Add task status (PENDING, IN_PROGRESS, COMPLETED)
-2. Add task priority levels
-3. Implement pagination for search results
-4. Add due date notifications
-5. Add task comments/attachments
-6. Implement JWT authentication
-7. Add task sharing between users
-8. Add task tags
-9. Add task completion history
-10. Implement task export functionality
+- Add task status (PENDING, IN_PROGRESS, COMPLETED)
+- Add task priority levels
+- Implement pagination for search results
+- Add due date notifications
+- Add task comments/attachments
+- Implement JWT authentication
+- Add task sharing between users
+- Add task tags
+- Add task completion history
+- Implement task export functionality
