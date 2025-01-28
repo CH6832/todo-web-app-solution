@@ -42,10 +42,15 @@ public class ErrorResponse {
     }
 
     /**
-     * Constructs an ErrorResponse with all fields.
+     * Constructs an ErrorResponse with the provided status and message.
      */
     public ErrorResponse(int status, String message) {
-        this();
+        if (status < 100 || status > 599) {
+            throw new IllegalArgumentException("Invalid HTTP status code: " + status);
+        }
+        if (message == null || message.trim().isEmpty()) {
+            throw new IllegalArgumentException("Error message must not be null or empty");
+        }
         this.status = status;
         this.message = message;
     }
